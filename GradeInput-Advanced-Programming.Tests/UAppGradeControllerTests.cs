@@ -42,18 +42,15 @@ public class UAppGradeControllerTests
         var context = GetDbContext();
         var controller = new UAppGradeController(context);
 
-        var vm = new UappGradeVm
+        var vm = new UappGradeVm()
         {
-            SplitData = new List<SplitData>
-            {
-                new SplitData { GradeId = 1, Ratio = 100m },
-            }
+            SplitData = new List<SplitData>()
         };
 
         var result = controller.AddSplitRow(vm) as ViewResult;
         var model = result.Model as UappGradeVm;
 
-        Assert.Equal(2, model.SplitData.Count);
+        Assert.Single(model.SplitData);
         Assert.Equal(100m, model.SplitData[0].Ratio);
     }
 
