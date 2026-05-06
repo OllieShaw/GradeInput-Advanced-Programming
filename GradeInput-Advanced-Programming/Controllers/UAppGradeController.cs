@@ -1,5 +1,6 @@
 ﻿using GradeInput_Advanced_Programming.Trading;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 using Models;
 using Models.UappGrade;
 
@@ -12,6 +13,20 @@ namespace GradeInput_Advanced_Programming.Controllers
         {
             _context = context;
         }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var existing = _context.UAppGrades.Find(id);
+            if (existing == null)
+                return NotFound();
+
+            _context.UAppGrades.Remove(existing);
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         [HttpPost]
         public IActionResult Edit(UappGradeVm uappGradeVm)
         {

@@ -7,9 +7,21 @@ builder.Services.AddControllersWithViews();
 
 // Register TradingContext as a scoped service
 //Register it with app setttings connection string
-builder.Services.AddDbContext<TradingContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+if (string.IsNullOrWhiteSpace(connectionString) ||
+    !connectionString.Contains("Password=", StringComparison.OrdinalIgnoreCase))
+{
+    builder.Services.AddDbContext<TradingContext>(options =>
+        options.UseInMemoryDatabase("Trading"));
+}
+else
+{
+    builder.Services.AddDbContext<TradingContext>(options =>
+        options.UseNpgsql(connectionString));
+}
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

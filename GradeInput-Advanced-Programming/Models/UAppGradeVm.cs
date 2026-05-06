@@ -129,7 +129,11 @@ namespace Models.UappGrade
             if (uAppGrade.CountryId.HasValue)
                 Country = EnumExtensions.GetEnumFromId<GeographicJurisdiction>(uAppGrade.CountryId.Value);
 
-            CountryID = (int)Country.Value;
+            if (Country.HasValue)
+            {
+                CountryID = (int)Country.Value;
+
+            }
             SplitData = UAppGradeHelper.GetSplitDataFromDb(uAppGrade.SplitData);
 
         }
