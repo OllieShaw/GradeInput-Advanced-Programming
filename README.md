@@ -37,9 +37,7 @@ This is intended for:
 
 ## Configuration
 
-To connect to a database, add the following to your configuration:
-
-Example:
+To connect to a database, add the a connection string to the app settings file:
 
 If this is not provided, the application will run in in-memory mode automatically.
 
