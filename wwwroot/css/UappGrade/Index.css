@@ -1,0 +1,253 @@
+/* ===========================
+   Container & Layout
+=========================== */
+.uappgrade-container {
+    background-color: #0A2D55;
+    box-shadow: 0 0 15px rgba(134, 252, 153, 0.25);
+    padding: 20px;
+    color: #ffffff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.split-ratio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+}
+
+    .split-ratio-table th,
+    .split-ratio-table td {
+        border: 1px solid rgba(134, 252, 153, 0.3);
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.year-header {
+    font-weight: bold;
+    text-align: left;
+}
+
+.grade-row td {
+    text-align: left;
+}
+
+/* ===========================
+   Header
+=========================== */
+.uappgrade-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #86FC99;
+    padding-bottom: 8px;
+}
+
+    .uappgrade-header h2 {
+        font-size: 1.6rem;
+        margin: 0;
+        color: #86FC99;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .uappgrade-header i {
+        font-size: 1.8rem;
+        color: #86FC99;
+    }
+
+/* ===========================
+   Table wrapper
+=========================== */
+.uappgrade-table-wrapper {
+    overflow-x: auto;
+}
+
+/* ===========================
+   Table Styling
+=========================== */
+.uappgrade-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #0B3666;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+    .uappgrade-table th {
+        background-color: #104A8C;
+        border-bottom: 2px solid #86FC99;
+        color: #86FC99;
+        font-weight: 600;
+        text-align: center;
+        padding: 10px 6px;
+        white-space: nowrap;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .uappgrade-table td {
+        border: 1px solid rgba(134, 252, 153, 0.3);
+        padding: 8px 6px;
+        color: #ffffff;
+        text-align:center;
+        vertical-align: middle;
+        word-wrap: break-word;
+    }
+
+.actions {
+    text-align: center;
+    white-space: nowrap;
+}
+
+    .actions .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin: 0 4px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+        .actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+        }
+
+    .actions .btn-nice {
+        background-color: #5bc0de;
+        color: #0B3666;
+    }
+
+        .actions .btn-nice:hover {
+            background-color: #31b0d5;
+            color: #ffffff;
+        }
+
+    .actions .btn-warning {
+        background-color: #f0ad4e;
+        color: #0B3666;
+    }
+
+        .actions .btn-warning:hover {
+            background-color: #e69a3b;
+            color: #ffffff;
+        }
+
+    .actions .btn-danger {
+        background-color: #d9534f;
+        color: #ffffff;
+    }
+
+        .actions .btn-danger:hover {
+            background-color: #c9302c;
+        }
+
+.split-detail-container .split-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-add-ratio {
+    background-color: #28a745; 
+    color: white;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .btn-add-ratio:hover {
+        background-color: #218838;
+    }
+
+.btn-edit-ratio {
+    background-color: #ffc107; 
+    color: #212529;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .btn-edit-ratio:hover {
+        background-color: #e0a800;
+    }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 0 4px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+
+.btn-danger {
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+    .btn-danger:hover {
+        background-color: #c9302c;
+    }
+
+.btn-nice {
+    background-color: #5bc0de;
+    color: #0B3666;
+}
+
+    .btn-nice:hover {
+        background-color: #31b0d5;
+        color: #ffffff;
+    }
+
+@media (max-width: 768px) {
+    .actions .btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}

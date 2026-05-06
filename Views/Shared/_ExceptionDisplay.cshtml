@@ -1,0 +1,47 @@
+﻿@model Exception
+<link href="/css/ExceptionDisplay.css" rel="stylesheet" />
+@if (Model != null)
+{
+    <div class="error-overlay">
+        <div class="error-container">
+            <div class="error-header">
+                <div class="error-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 110 18 9 9 0 010-18z" />
+                    </svg>
+                </div>
+                <h2>Something went wrong</h2>
+                <button class="close-btn" onclick="this.closest('.error-overlay').style.display='none';">&times;</button>
+            </div>
+
+            <div class="error-body">
+                <p><strong>Message:</strong> @Model.Message</p>
+                <p><strong>Type:</strong> @Model.GetType().Name</p>
+
+
+                @if (Model.InnerException != null)
+                {
+                    <details class="stacktrace">
+                        <summary>InnerException</summary>
+                        <pre>@Model.InnerException</pre>
+                    </details>
+
+                }
+
+                <details class="stacktrace">
+                    <summary>View Stack Trace</summary>
+                    <pre>@Model.StackTrace</pre>
+                </details>
+            </div>
+
+            <div class="error-footer">
+                <p>If this issue persists, please contact our support team:</p>
+                <ul>
+                    <li>📧 <a href="mailto:o.shaw@my.bpp.com">o.shaw@my.bpp.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}
+

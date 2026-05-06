@@ -1,0 +1,473 @@
+
+  *, *::before, *::after {
+      box-sizing: border-box;
+  }
+
+  .sg-wrap {
+      max-width: 960px;
+      margin: 36px auto;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #e6f2ff;
+  }
+
+  /* ── Card shell ── */
+  .sg-card {
+      background: #0f3c6e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.45);
+  }
+
+  /* ── Header ── */
+  .sg-header {
+      padding: 28px 36px;
+      background: #0b3666;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+  }
+
+  .sg-header-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(134,252,153,.15);
+      border: 1px solid rgba(134,252,153,.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+  }
+
+      .sg-header-icon svg {
+          width: 18px;
+          height: 18px;
+          stroke: #86FC99;
+          fill: none;
+          stroke-width: 2;
+      }
+
+  .sg-header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #86FC99;
+      letter-spacing: .01em;
+  }
+
+  /* ── Body ── */
+  .sg-body {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+  }
+
+  /* ── Section label ── */
+  .sg-section-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(134,252,153,.6);
+      margin-bottom: 12px;
+  }
+
+  /* ── Two-col grid ── */
+  .sg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+  }
+
+  /* ── Form field ── */
+  .sg-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+  }
+
+      .sg-field label {
+          font-size: .78rem;
+          font-weight: 600;
+          color: #86FC99;
+          letter-spacing: .04em;
+          text-transform: uppercase;
+      }
+
+      .sg-field input,
+      .sg-field select {
+          padding: 10px 13px;
+          border-radius: 7px;
+          border: 1px solid rgba(255,255,255,.14);
+          background: rgba(5,22,45,.7);
+          color: #e6f2ff;
+          font-size: .93rem;
+          transition: border-color .18s, box-shadow .18s;
+          appearance: none;
+          -webkit-appearance: none;
+      }
+
+      .sg-field select {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386FC99' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 13px center;
+          padding-right: 36px;
+      }
+
+          .sg-field input:focus,
+          .sg-field select:focus {
+              outline: none;
+              border-color: #86FC99;
+              box-shadow: 0 0 0 3px rgba(134,252,153,.15);
+          }
+
+      .sg-field .val-msg {
+          font-size: .75rem;
+          color: #ff7a7a;
+          min-height: 14px;
+      }
+
+  /* ── Divider ── */
+  .sg-divider {
+      height: 1px;
+      background: rgba(255,255,255,.07);
+  }
+
+  /* ── Range block ── */
+  .sg-range-block {
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(8,40,77,.4);
+      transition: border-color .18s;
+  }
+
+      .sg-range-block:hover {
+          border-color: rgba(134,252,153,.2);
+      }
+
+  .sg-range-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(5,22,45,.5);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      gap: 12px;
+  }
+
+  .sg-range-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: #c8e6ff;
+  }
+
+      .sg-range-title svg {
+          width: 14px;
+          height: 14px;
+          stroke: #86FC99;
+          fill: none;
+          stroke-width: 2;
+          flex-shrink: 0;
+      }
+
+  .sg-ratio-list {
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  /* ── Ratio row ── */
+  .sg-ratio-row {
+      display: grid;
+      gap: 10px;
+      align-items: end;
+      background: rgba(5,22,45,.5);
+      padding: 12px 14px;
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,.07);
+      transition: border-color .15s;
+  }
+
+      .sg-ratio-row:hover {
+          border-color: rgba(255,255,255,.14);
+      }
+
+  /* ── Delete button ── */
+  .sg-delete {
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255,77,77,.12);
+      color: #ff7a7a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s, color .15s;
+      align-self: end;
+      flex-shrink: 0;
+  }
+
+      .sg-delete:hover {
+          background: rgba(255,77,77,.3);
+          color: #ff4d4d;
+      }
+
+      .sg-delete svg {
+          width: 16px;
+          height: 16px;
+          stroke: currentColor;
+          fill: none;
+          stroke-width: 2.5;
+      }
+
+  /* ── Buttons ── */
+  .sg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 7px;
+      border: none;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+  }
+
+      .sg-btn:active {
+          transform: scale(.97);
+      }
+
+      .sg-btn svg {
+          width: 14px;
+          height: 14px;
+          stroke: currentColor;
+          fill: none;
+          stroke-width: 2.5;
+      }
+
+  .sg-btn-primary {
+      background: #86FC99;
+      color: #08284d;
+  }
+
+      .sg-btn-primary:hover {
+          background: #6fe885;
+      }
+
+  .sg-btn-ghost {
+      background: rgba(134,252,153,.1);
+      color: #86FC99;
+      border: 1px solid rgba(134,252,153,.25);
+  }
+
+      .sg-btn-ghost:hover {
+          background: rgba(134,252,153,.18);
+      }
+
+  /* ── Add date range temp block ── */
+  .sg-temp-block {
+      border: 1px dashed rgba(134,252,153,.3);
+      border-radius: 10px;
+      padding: 18px;
+      background: rgba(134,252,153,.03);
+  }
+
+      .sg-temp-block .sg-grid {
+          align-items: end;
+      }
+
+  /* ── Footer actions ── */
+  .sg-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding-top: 4px;
+  }
+
+  /* ── Validation summary ── */
+  .validation-summary-errors ul {
+      margin: 0;
+      padding: 12px 16px;
+      background: rgba(255,77,77,.1);
+      border: 1px solid rgba(255,77,77,.3);
+      border-radius: 8px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+  }
+
+  .validation-summary-errors li {
+      font-size: .83rem;
+      color: #ff9090;
+  }
+
+  .validation-summary-valid {
+      display: none;
+  }
+
+  /* Empty state */
+  .sg-empty {
+      text-align: center;
+      padding: 24px 0;
+      color: rgba(134,252,153,.4);
+      font-size: .83rem;
+  }
+
+body{
+    background: linear-gradient(135deg,#081b31,#0c2a4d);
+    font-family: Segoe UI, sans-serif;
+    color:#e6f2ff;
+}
+
+/* Container */
+
+.create-container{
+    max-width:1000px;
+    margin:40px auto;
+    background:#0f3c6e;
+    border-radius:10px;
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+.create-container .form-content form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+
+/* Header */
+
+.create-header{
+    background:#0b3666;
+    padding:35px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.create-header h1{
+    margin:0;
+    color:#86FC99;
+}
+
+/* Form */
+
+.form-content{
+    padding:35px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:6px;
+    font-weight:600;
+    color:#86FC99;
+}
+
+/* Inputs */
+
+
+
+
+input,
+select{
+    padding:10px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,.2);
+    background:#08284d;
+    color:white;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#86FC99;
+    box-shadow:0 0 8px rgba(134,252,153,.5);
+}
+
+/* Checkboxes */
+
+.checkbox-group{
+    flex-direction:row;
+    align-items:center;
+}
+
+.checkbox-group label{
+    margin-left:8px;
+}
+
+/* Split Rows */
+
+.split-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr auto;
+    gap:15px;
+    background:#08284d;
+    padding:15px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+/* Delete Button */
+
+.delete-split-row a{
+    background:#ff4d4d;
+    color:white;
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.delete-split-row a:hover{
+    background:#e60000;
+}
+.split-ratio-table tbody tr td{
+    text-align:center;
+}
+/* Buttons */
+.btn-primary {
+    background: #86FC99;
+    color: #08284d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-primary:hover{
+    background:#6fe885;
+}
+
+/* Footer */
+
+.back-link{
+    padding:20px;
+}
+
+.back-link a{
+    color:#86FC99;
+}

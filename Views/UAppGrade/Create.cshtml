@@ -1,0 +1,239 @@
+﻿@using Models.UappGrade
+@model UappGradeVm
+
+@{
+    ViewData["Title"] = "Create Fuel Grade";
+}
+
+<link href="/css/UappGrade/Create.css" rel="stylesheet" />
+@await Html.PartialAsync("_ExceptionDisplay", Model.Exception)
+
+<div class="create-container">
+
+    <header class="create-header">
+        <h1>@ViewData["Title"]</h1>
+    </header>
+
+
+    <div class="form-content">
+
+        <form asp-action="Create" style="display:block" class="create-form">
+
+            <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+            <div class="form-grid">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="GradeName">Grade Name</label>
+                    <input asp-for="GradeName" />
+                    <span asp-validation-for="GradeName"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TableName"></label>
+                    <input asp-for="TableName" />
+                    <span asp-validation-for="TableName"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SpotTable"></label>
+                    <input asp-for="SpotTable" />
+                    <span asp-validation-for="SpotTable"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SpotName"></label>
+                    <input asp-for="SpotName" />
+                    <span asp-validation-for="SpotName"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ForwardGrade"></label>
+                    <input asp-for="ForwardGrade" />
+                    <span asp-validation-for="ForwardGrade"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LitresPerTonne"></label>
+                    <input asp-for="LitresPerTonne" />
+                    <span asp-validation-for="LitresPerTonne"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CostsAddOn"></label>
+                    <input asp-for="CostsAddOn" />
+                    <span asp-validation-for="CostsAddOn"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MultipleToMt"></label>
+                    <input asp-for="MultipleToMt" />
+                    <span asp-validation-for="MultipleToMt"></span>
+                </div>
+
+                <!-- Rounding -->
+                <div class="form-group">
+                    <label asp-for="Rounding"></label>
+                    <input asp-for="Rounding" />
+                    <span asp-validation-for="Rounding"></span>
+                </div>
+
+                <!-- Diff Add On -->
+                <div class="form-group">
+                    <label asp-for="DiffAddOn"></label>
+                    <input asp-for="DiffAddOn" />
+                    <span asp-validation-for="DiffAddOn"></span>
+                </div>
+
+                <!-- Default Costs Add On -->
+                <div class="form-group">
+                    <label asp-for="DefaultCostsAddOn"></label>
+                    <input asp-for="DefaultCostsAddOn" />
+                    <span asp-validation-for="DefaultCostsAddOn"></span>
+                </div>
+
+                <!-- Volume Type -->
+                <div class="form-group">
+                    <label asp-for="Volumetype"></label>
+                    <select asp-for="Volumetype" asp-items="Model.VolumeType"></select>
+                    <span asp-validation-for="Volumetype"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WinterGradeStartMonth"></label>
+                    <select asp-for="WinterGradeStartMonth">
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <span asp-validation-for="WinterGradeStartMonth"></span>
+                    <label asp-for="WinterGradeStartDay"></label>
+                    <select asp-for="WinterGradeStartDay">
+                        @for (int i = 1; i <= 31; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <span asp-validation-for="WinterGradeStartDay"></span>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="WinterGradeEndMonth"></label>
+                    <select asp-for="WinterGradeEndMonth">
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+                    <span asp-validation-for="WinterGradeEndMonth"></span>
+                    <label asp-for="WinterGradeEndDay"></label>
+                    <select asp-for="WinterGradeEndDay">
+                        @for (int i = 1; i <= 31; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                    <span asp-validation-for="WinterGradeEndDay"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReportedCurrency"></label>
+                    <select asp-for="ReportedCurrency" asp-items="Model.CurrencysAsSelectList"></select>
+                    <span asp-validation-for="ReportedCurrency"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country"></label>
+                    <select asp-for="Country" asp-items="Model.GeographicJurisdiction"></select>
+                    <span asp-validation-for="Country"></span>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input asp-for="IsIndicAvailable" />
+                    <label asp-for="IsIndicAvailable"></label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input asp-for="IsContractMonthSpecific" />
+                    <label asp-for="IsContractMonthSpecific"></label>
+                </div>
+
+                <input asp-for="IsSplitGrade" type="hidden" id="IsSplitGrade" />
+
+                <button type="submit" asp-action="AddSplitRow" class="btn-primary">
+                    Add Split Row
+                </button>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                @if (Model.SplitData != null && Model.SplitData.Count > 0)
+                {
+                    @for (int i = 0; i < Model.SplitData.Count; i++)
+                    {
+                        <div class="split-row">
+
+                            <div class="form-group">
+                                <label>Grade</label>
+                                <select asp-for="SplitData[i].GradeId"
+                                        asp-items="Model.GradesAsSelectList">
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ratio (%)</label>
+                                <input asp-for="SplitData[i].Ratio"
+                                       type="number"
+                                       step="0.01"
+                                       min="0"
+                                       max="100" />
+                            </div>
+                            <span class="delete-split-row">
+                                <a href="javascript:void(0);" onclick="deleteSplitRow(this)">×</a>
+                            </span>
+                        </div>
+                    }
+                }
+
+            </div>
+
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Create</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+       function deleteSplitRow(btn) {
+        const row = btn.closest(".split-row");
+        row.remove();
+    }
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

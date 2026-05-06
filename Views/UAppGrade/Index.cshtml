@@ -1,0 +1,90 @@
+﻿@using System.Reflection
+@using System.ComponentModel.DataAnnotations
+@using Models.UappGrade
+
+@model Models.UappGrade.UappGradeIndex
+
+<link href="/css/UappGrade/Index.css" rel="stylesheet" />
+
+@{
+    var PropertiesToIgnore = new List<string>
+    {
+        nameof(UappGradeVm.CostsAddOn),
+        nameof(UappGradeVm.MultipleToMt),
+        nameof(UappGradeVm.Rounding),
+        nameof(UappGradeVm.DiffAddOn),
+        nameof(UappGradeVm.DefaultCostsAddOn),
+        nameof(UappGradeVm.Volumetype),
+        nameof(UappGradeVm.ReportedCurrency),
+        nameof(UappGradeVm.IsSplitGrade),
+        nameof(UappGradeVm.SplitData),
+        nameof(UappGradeVm.VolumeType),
+        nameof(UappGradeVm.Exception),
+        nameof(UappGradeVm.GradesAsSelectList),
+        nameof(UappGradeVm.CurrencysAsSelectList),
+        nameof(UappGradeVm.TableName),
+                nameof(UappGradeVm.SpotTable),
+        nameof(UappGradeVm.SpotName),
+        nameof(UappGradeVm.LitresPerTonne),
+        nameof(UappGradeVm.IsIndicAvailable),
+        nameof(UappGradeVm.IsEdit),
+        nameof(UappGradeVm.ForwardGrade),
+        nameof(UappGradeVm.WinterGradeStartDay),
+        nameof(UappGradeVm.WinterGradeStartMonth),
+        nameof(UappGradeVm.WinterGradeEndDay),
+        nameof(UappGradeVm.WinterGradeEndMonth),
+        nameof(UappGradeVm.GeographicJurisdiction),
+        nameof(UappGradeVm.IsContractMonthSpecific),
+        nameof(UappGradeVm.Country)
+    };
+
+    // Filter out ignored properties
+    var Properties = typeof(UappGradeVm)
+        .GetProperties()
+        .Where(p => !PropertiesToIgnore.Contains(p.Name))
+        .ToList();
+}
+
+<div class="uappgrade-container">
+    <div class="uappgrade-header">
+        <i class="fas fa-gas-pump"></i>
+        <h2>Fuel Grades</h2>
+        <div class="actions">
+            <a class="btn btn-nice" asp-action="Create">Add New</a>
+        </div>
+    </div>
+
+    <div class="uappgrade-table-wrapper table-container">
+        <table class="uappgrade-table">
+            <thead>
+                <tr>
+                    @foreach (var prop in Properties)
+                    {
+                        var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
+                        var displayName = displayAttr?.Name ?? prop.Name;
+                        <th>@displayName</th>
+                    }
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.uappGradeVms)
+                {
+                    <tr>
+                        @foreach (var prop in Properties)
+                        {
+                            var value = prop.GetValue(item);
+                            <td>@(value ?? "")</td>
+                        }
+                        <td class="actions">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
